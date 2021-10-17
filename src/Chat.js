@@ -3,15 +3,26 @@ import MoreVert from '@mui/icons-material/MoreVert';
 import { Avatar, IconButton } from '@mui/material';
 
 import React , {useState, useEffect} from 'react';
+import { useParams } from 'react-router';
 import "./Chat.css";
+import db from './firebase';
 
 function Chat() {
     const [input, setInput] = useState("");
     const [seed, setSeed] = useState("");
+    const { roomId } = useParams();
+    const [roomName, setRoomname] = useState("");
+
+    useEffect(() => {
+        if(roomId) {
+            db.collection('rooms').doc(roomId).onSnapshot( snapshot =>
+                setRoomname(snapshot.data().name ))
+        }
+    }, [roomId])
 
     useEffect(() => {
         setSeed(Math.floor(Math.random() * 5004 ));
-    }, []);
+    }, [roomId]);
 
      const sendmessage = (e) => {
          e.preventDefault();
@@ -30,8 +41,8 @@ function Chat() {
                 />
 
                 <div className="header_info">
-                    <h3>Room name</h3>
-                    <p>Last seen at ...</p>
+                    <h3>{roomName}</h3>
+                    <p>Last message ...</p>
                 </div>
 
                 <div className="header_right">

@@ -3,18 +3,19 @@ import IconButton from '@mui/material/IconButton';
 import DonutLargeIcon from '@mui/icons-material/DonutLarge';
 import ChatIcon from '@mui/icons-material/Chat';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-import { deepOrange } from '@mui/material/colors';
 import SearchIcon from '@mui/icons-material/Search';
 import React, { useEffect } from 'react';
 import "./sidebar.css";
 import Sidebarchat from './sidebarchat';
 import db from './firebase';
 import { useState } from 'react';
+import { UseStateValue } from './StateProvider';
 
 
 function Sidebar() {
 
     const [rooms, setRooms] = useState([]);
+    const [{ user }, dispatch] = UseStateValue();
 
     useEffect(() => {
         const unsubscribe = db.collection("rooms").onSnapshot((snapshot) =>
@@ -38,7 +39,7 @@ function Sidebar() {
     return (
         <div className="side">
             <div className="sidebar_header">
-                <Avatar sx={{ bgcolor: deepOrange[500] }}>N</Avatar>
+                <Avatar src={user?.photoURL} />
                 <div className="header_right" >
                     <IconButton>
                         <DonutLargeIcon />

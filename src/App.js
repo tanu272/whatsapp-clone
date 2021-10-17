@@ -7,11 +7,18 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
+import Login from "./login"
+import { UseStateValue } from './StateProvider';
 
 function App() {
+  const[ { user }, dispatch] = UseStateValue();
+
   return (
     <div className="App">
 
+      {!user ? (
+        <Login />
+      ) : (
       <div className="app__body">
         <Router>
         <Sidebar />
@@ -26,9 +33,11 @@ function App() {
               <Chat />
             </Route>
           </Switch>
-          
+
         </Router>
       </div>
+      )
+    }
     </div>
   );
 }

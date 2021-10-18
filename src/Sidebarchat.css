@@ -10,6 +10,11 @@
     background-color: #ebebeb;
 }
 
+a {
+    text-decoration: none !important;
+    color: rgb(53, 52, 52);
+}
+
 .sidebarchat_info {
     display: flex;
     flex-direction: column;

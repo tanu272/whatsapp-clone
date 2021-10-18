@@ -65,7 +65,7 @@
 
 .chat_name {
     position: absolute;
-    top:-15px;
+    margin-top:-25px;
     font-size: 10px;
     font-weight: 700;
 }

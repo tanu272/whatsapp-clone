@@ -60,7 +60,11 @@ function Chat() {
 
                 <div className="header_info">
                     <h3>{roomName}</h3>
-                    <p>Last message ...</p>
+                    <p>Last seen at{" "}
+                    {new Date(
+                        messages[messages.length-1]?.timestamp?.toDate()
+                    ).toUTCString()}
+                    </p>
                 </div>
 
                 <div className="header_right">
@@ -83,7 +87,7 @@ function Chat() {
                         </span>
                         {message.message}
                         <span className="timestamp">
-                            {new Date(message.timestamp ?.toDate()).toUTCString()}
+                            {(new Date(message.timestamp ?.toDate()).toUTCString()).substring(17, 22)}
                         </span>
                     </p>
                 ))}

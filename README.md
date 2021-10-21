@@ -27,11 +27,11 @@
 </p>
 
 
-<h3>LINK TO DEPLOYED WEBSITE: <a href="https://doracle-webapp.vercel.app/">HERE</a></h3>
+<h3>LINK TO DEPLOYED WEBSITE: <a href="https://whatsapp-clone-8418c.web.app">HERE</a></h3>
 
 <p>
   This is a whatsapp-clone that uses <strong>ReactJS, CSS and Material UI</strong> for designing the UI and <strong>React Router</strong> for switching between pages.
-  The database and backend of the app is made and maintained through the <strong>Firebase Firestore database</strong>.
+  The database and backend of the app is made and maintained through the <strong>Firebase Firestore database</strong> and the whole app is deployed through Firebase.
 </p>
 
 [r]: https://reactjs.org/

@@ -7,7 +7,7 @@ import { UseStateValue } from './StateProvider';
 import logo from "./Wa_logo.png";
 
 function login() {
-    const [{}, dispatch] = UseStateValue();
+    const [{login}, dispatch] = UseStateValue();
 
     const signIn =() => {
         auth
